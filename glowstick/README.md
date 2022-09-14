@@ -1,8 +1,9 @@
-
+Linux users can use the binary glowstick.so if they do not want to compile. GimpChat may have a binary for Windows that was compiled by someone other then me. 
 
 
 
 ## Compiling and Installing
+
 
 ### Linux
 
