@@ -3,4 +3,4 @@ GEGL does an awesome neon glow stick effect.  Compile and put the binary in  /ge
 
 ![image preview](glowstick_best.png )
 ![image preview](preview2.png )
-![image preview](preview3.png )
+![image preview](preview4.png )
