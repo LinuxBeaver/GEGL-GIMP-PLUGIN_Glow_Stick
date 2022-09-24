@@ -42,29 +42,30 @@ property_string (string1, _("GEGL 1"), TUTORIAL)
 
 
 
-enum_start (gegl_blend_mode_type3)
+enum_start (gegl_blend_mode_typeglowstick)
   enum_value (GEGL_BLEND_MODE_TYPE_GRAINMERGE, "grainmerge",
-              N_("Grain Merge"))
+              N_("GrainMerge"))
   enum_value (GEGL_BLEND_MODE_TYPE_HSLCOLOR,      "hslcolor",
-              N_("HSL Color"))
+              N_("HSLColor"))
   enum_value (GEGL_BLEND_MODE_TYPE_SOFTLIGHT,      "softlight",
-              N_("Soft Light"))
+              N_("SoftLight"))
   enum_value (GEGL_BLEND_MODE_TYPE_OVERLAY,      "overlay",
               N_("Overlay"))
   enum_value (GEGL_BLEND_MODE_TYPE_BURN,      "burn",
-              N_("Burn (will malfunction on some settings)"))
+              N_("Burn"))
   enum_value (GEGL_BLEND_MODE_TYPE_LCHCOLOR,      "lchcolor",
-              N_("LCh Color"))
+              N_("LChColor"))
   enum_value (GEGL_BLEND_MODE_TYPE_MULTIPLY,      "multiply",
               N_("Multiply"))
   enum_value (GEGL_BLEND_MODE_TYPE_LINEARLIGHT,      "linearlight",
-              N_("Linear Light (will malfunction on some settings)"))
+              N_("LinearLight"))
  enum_value (GEGL_BLEND_MODE_TYPE_HARDLIGHT,      "hardlight",
-              N_("Hard Light (will malfunction on some settings) "))
+              N_("HardLight"))
+
 property_enum (blendmode, _("Internal Blend Mode of Glowstick"),
-    GeglBlendModeType3, gegl_blend_mode_type3,
+    GeglBlendModeTypeglowstick, gegl_blend_mode_typeglowstick,
     GEGL_BLEND_MODE_TYPE_SOFTLIGHT)
-enum_end (GeglBlendModeType3)
+enum_end (GeglBlendModeTypeglowstick)
 
 property_int  (noisereduction, _("Smooth Original Image"), 2)
   description (_("Controls the number of iterations"))
