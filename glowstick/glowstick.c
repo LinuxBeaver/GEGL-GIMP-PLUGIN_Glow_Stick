@@ -204,32 +204,32 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
                                   NULL);
 
 hslcolor = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 39, NULL);
+                                  "operation", "gimp:layer-mode", "layer-mode", 39, "composite-mode", 0, NULL);
 
 grainmerge = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 47, NULL);
+                                  "operation", "gimp:layer-mode", "layer-mode", 47, "composite-mode", 0, NULL);
 
 softlight = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 45, NULL);
+                                  "operation", "gimp:layer-mode", "layer-mode", 45, "composite-mode", 0, NULL);
 
 hardlight = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 44, NULL);
+                                  "operation", "gimp:layer-mode", "layer-mode", 44, "composite-mode", 0, NULL);
 
 
 overlay = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 23, NULL);
+                                  "operation", "gimp:layer-mode", "layer-mode", 23, "composite-mode", 0, NULL);
 
 burn = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 43,  "blend-space", 2, NULL);
+                                  "operation", "gimp:layer-mode", "layer-mode", 43, "composite-mode", 0,  "blend-space", 2, NULL);
 
 lchcolor = gegl_node_new_child (gegl,
-                                    "operation", "gimp:layer-mode", "layer-mode", 26,  "blend-space", 3, NULL);
+                                    "operation", "gimp:layer-mode", "layer-mode", 26, "composite-mode", 0,  "blend-space", 3, NULL);
 
 multiply = gegl_node_new_child (gegl,
-                                    "operation", "gimp:layer-mode", "layer-mode", 30,  "blend-space", 2, NULL);
+                                    "operation", "gimp:layer-mode", "layer-mode", 30, "composite-mode", 0,  "blend-space", 2, NULL);
 
 linearlight = gegl_node_new_child (gegl,
-                                    "operation", "gimp:layer-mode", "layer-mode", 50,  "blend-space", 2, NULL);
+                                    "operation", "gimp:layer-mode", "layer-mode", 50, "composite-mode", 0,  "blend-space", 2, NULL);
 
 
   lightchroma    = gegl_node_new_child (gegl,
