@@ -1,7 +1,8 @@
 # GEGL-Glowstick-color-and-lighting-filter
-GEGL does an awesome neon glow stick effect. 
+In this Gimp plugin GEGL does an awesome neon glow stick effect. 
 
 ![image preview](glowstick_best.png )
+![image preview](preview5.png )
 ![image preview](preview3.png )
 ![image preview](glowzebra.png )
 
