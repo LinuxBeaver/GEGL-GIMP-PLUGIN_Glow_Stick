@@ -167,7 +167,7 @@ update_graph (GeglOperation *operation)
     case GEGL_BLEND_MODE_TYPE_HARDLIGHT: usethis = state->hardlight; break;
   }
   gegl_node_link_many (state->input,  state->noisereduction, state->gegl1, state->nop, usethis, state->crop, state->lightchroma, state->softglow, state->bloom, state->output,  NULL);
-  gegl_node_connect_from (usethis, "aux", state->color, "output");
+  gegl_node_connect (usethis, "aux", state->color, "output");
 
 }
 
@@ -257,7 +257,7 @@ linearlight = gegl_node_new_child (gegl,
 
 
   gegl_node_link_many (input,  noisereduction,  gegl1, nop, softlight, crop, lightchroma, bloom, softglow, output, NULL);
-  gegl_node_connect_from (softlight, "aux", color, "output");
+  gegl_node_connect (softlight, "aux", color, "output");
   gegl_node_link_many (nop, lightchroma, NULL);
 
   /* now save references to the gegl nodes so we can use them
@@ -298,11 +298,11 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
   operation_meta_class->update = update_graph;
 
   gegl_operation_class_set_keys (operation_class,
-    "name",        "gegl:glowstick",
+    "name",        "lb:glowstick",
     "title",       _("Glow Stick"),
     "categories",  "Artistic",
     "reference-hash", "ha3g451fv0nyesyeesg5sgac",
-    "description", _("GEGL makes a image neon like a glow stick"
+    "description", _("Makes a image neon like a glow stick"
                      ""),
     NULL);
 }
