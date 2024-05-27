@@ -18,7 +18,7 @@
  */
 
 /*
-Recreation of Glow Sticks GEGL Graph 
+Recreation of Glow Sticks GEGL Graph
 
 gimp:desaturate
 invert-gamma
@@ -38,8 +38,7 @@ multiply aux=[ ref=2  ]
 #ifdef GEGL_PROPERTIES
 
 property_color (color, _("Color of Glowstick"), "#ffacf9")
-    description (_("The color to render (defaults to 'black')"))
-    ui_meta     ("role", "color-primary")
+    description (_("The color to render')"))
 
 
 
@@ -73,12 +72,12 @@ property_enum (blendmode, _("Internal Blend Mode of Glowstick"),
 enum_end (GeglBlendModeTypeglowstick)
 
 property_int  (noisereduction, _("Smooth Original Image"), 2)
-  description (_("Controls the number of iterations"))
+  description (_("Smooths the image with noise reduction"))
   value_range (0, 6)
   ui_range    (0, 6)
 
-property_double (sat, _("Chroma"), 0)
-    description(_("Scale, strength of effect"))
+property_double (sat, _("Saturation"), 0)
+    description(_("Saturation Color enhancement"))
     value_range (0, 15.0)
     ui_range (0, 15.0)
 
@@ -93,7 +92,7 @@ property_double (strength, _("Bloom Glow Strength (turns on Bloom)"), 0.0)
     ui_range    (0.0, 50.0)
 
 property_double (softness, _("Bloom Glow Softness"), 7.0)
-    description (_("Glow-area edge softness"))
+    description (_("Bloom's softness setting"))
     value_range (7.0, G_MAXDOUBLE)
     ui_range    (7.0, 77.0)
 
@@ -110,7 +109,7 @@ property_double (brightness, _("Soft Glow Brightness (turns on Softglow)"), 0.0)
     value_range (0.0, 0.25)
 
 
-property_double (glow_radius, _("Soft Glow radius"), 0.0)
+property_double (glow_radius, _("Soft Glow radius"), 10.0)
     value_range (1.0, 150.0)
     ui_meta    ("unit", "pixel-distance")
 
@@ -127,23 +126,23 @@ property_double (glow_radius, _("Soft Glow radius"), 0.0)
 typedef struct
 {
   GeglNode *input;
-  GeglNode *nop; 
-  GeglNode *bloom; 
-  GeglNode *softglow; 
-  GeglNode *grainmerge; 
-  GeglNode *softlight; 
-  GeglNode *hardlight; 
-  GeglNode *hslcolor; 
-  GeglNode *crop; 
-  GeglNode *lchcolor; 
-  GeglNode *burn; 
-  GeglNode *multiply; 
-  GeglNode *linearlight; 
-  GeglNode *overlay; 
+  GeglNode *nop;
+  GeglNode *bloom;
+  GeglNode *softglow;
+  GeglNode *grainmerge;
+  GeglNode *softlight;
+  GeglNode *hardlight;
+  GeglNode *hslcolor;
+  GeglNode *crop;
+  GeglNode *lchcolor;
+  GeglNode *burn;
+  GeglNode *multiply;
+  GeglNode *linearlight;
+  GeglNode *overlay;
   GeglNode *gegl1;
   GeglNode *color;
   GeglNode *lightchroma;
-  GeglNode *noisereduction;  
+  GeglNode *noisereduction;
   GeglNode *output;
 }State;
 
@@ -247,7 +246,6 @@ linearlight = gegl_node_new_child (gegl,
   gegl_operation_meta_redirect (operation, "sat", lightchroma, "chroma");
   gegl_operation_meta_redirect (operation, "lightness", lightchroma, "lightness");
   gegl_operation_meta_redirect (operation, "noisereduction", noisereduction, "iterations");
-  gegl_operation_meta_redirect (operation, "string1", gegl1, "string");
   gegl_operation_meta_redirect (operation, "brightness", softglow, "brightness");
   gegl_operation_meta_redirect (operation, "glow_radius", softglow, "glow-radius");
   gegl_operation_meta_redirect (operation, "radius", bloom, "radius");
@@ -259,6 +257,7 @@ linearlight = gegl_node_new_child (gegl,
   gegl_node_link_many (input,  noisereduction,  gegl1, nop, softlight, crop, lightchroma, bloom, softglow, output, NULL);
   gegl_node_connect (softlight, "aux", color, "output");
   gegl_node_link_many (nop, lightchroma, NULL);
+  gegl_node_connect (crop, "aux", input, "output");
 
   /* now save references to the gegl nodes so we can use them
    * later, when update_graph() is called
