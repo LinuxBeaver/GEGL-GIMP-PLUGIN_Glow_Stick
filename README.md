@@ -1,23 +1,23 @@
 # GEGL-Glowstick-color-and-lighting-filter
 In this Gimp plugin GEGL does an awesome neon glow stick effect. 
 
-![image preview](glowstick_best.png )
-![image preview](preview5.png )
-![image preview](preview3.png )
-![image preview](glowzebra.png )
+![image preview](https://imgur.com/y1kSniY.png)
+![image preview](https://imgur.com/hZSpRCq.png )
+![image preview](https://imgur.com/DjUub0l.png )
+![image preview](https://imgur.com/NgeX7r7.png )
 
 
 
 ## OS specific location to put GEGL Filter binaries 
 
 Windows
- C:\\Users\<YOUR NAME>\AppData\Local\gegl-0.4\plug-ins
+ `C:\\Users\<YOUR NAME>\AppData\Local\gegl-0.4\plug-ins`
  
  Linux 
- /home/(USERNAME)/.local/share/gegl-0.4/plug-ins
+ `~.local/share/gegl-0.4/plug-ins`
  
  Linux (Flatpak)
- /home/(USERNAME)/.var/app/org.gimp.GIMP/data/gegl-0.4/plug-ins
+`~/.var/app/org.gimp.GIMP/data/gegl-0.4/plug-ins`
 
 
 ## Compiling and Installing
